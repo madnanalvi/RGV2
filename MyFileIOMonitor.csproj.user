@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="ETW_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ETW_Monitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form_entropy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form_SelectDirectories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

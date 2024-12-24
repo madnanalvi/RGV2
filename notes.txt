@@ -1,0 +1,28 @@
+﻿
+Xperf.exe –start “Provider Name” –on EventOne+EventTwo+EventThree –f LogFileName.etl
+
+
+Xperf.exe –start “NT Kernel Logger” –on PROC_THREAD+LOADER+DPC+INTERRUPT  –f log.etl
+Xperf.exe –stop
+Xperf.exe –stop “NT Kernel Logger”
+Xperf.exe –merge log.etl log_final.etl
+Xperf.exe –stop –d log_final.etl
+XperfView.exe log_final.etl
+Xperf.exe –providers i
+xperf.exe -providers kf
+
+
+
+Xperf.exe  –start “NT Kernel Logger” –on PROC_THREAD+FILE_IO+FILE_IO_INIT+FILENAME –f c:\log.etl
+Xperf.exe  –stop –d c:\log_final.etl
+
+PerfView
+
+logman query providers "Windows Kernel Trace"
+logman.exe query providers microsoft-windows-SMBClient
+logman start "NT Kernel Logger" -p "Windows Kernel Trace" (process,proccntr,thread,file,fileio,fileiocompletion) -o c:\MyTraceData.etl -ets
+logman stop "NT Kernel Logger" -ets
+tracerpt.exe c:\log.etl -o c:\MyTraceData-dmp.xml -of XML -summary c:\MyTraceData-summary.txt -report c:\MyTraceData-rpt.xml
+
+
+
